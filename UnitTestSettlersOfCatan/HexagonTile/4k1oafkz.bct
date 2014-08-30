@@ -1,0 +1,73 @@
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Repositry.Repository;
+using Repositry.Models;
+using Repositry.Model;
+
+namespace UnitTestSettlersOfCatan.HexagonTile
+{
+    [TestClass]
+    public class Test_CanPutRoadNorthWeast_DataValid
+    {
+        [TestMethod]
+        [ExpectedException(typeof(System.Exception))]
+        public void NoHex()
+        {
+            //Assert
+            CanPutRoadNorthWeast_DataValid canPutRoadNorthWeast = new CanPutRoadNorthWeast_DataValid();
+
+            //Act 
+            var canPut = canPutRoadNorthWeast.IsValid(null, null, null, 1);
+
+            //Assert
+            //ExpectedException
+        }
+
+        [TestMethod]
+        public void TopHex_Blank()
+        {
+            HexagonTileModel topHexagonTileModel = new HexagonTileModel() { };
+           
+            //Assert
+            CanPutRoadNorthWeast_DataValid canPutRoadNorthWeast = new CanPutRoadNorthWeast_DataValid();
+
+            //Act 
+            var canPut = canPutRoadNorthWeast.IsValid(topHexagonTileModel, null, null, 1);
+
+           //Assert
+            Assert.AreEqual(canPut, false);
+        }
+
+        [TestMethod]
+        public void TopHex_PlayerHasSettlementAtBottomLeftCorner()
+        {
+            HexagonTileModel topHexagonTileModel = new HexagonTileModel() { BottomLeftCorner = new CornerTypeModel() { HasSettlement = true, OwnerID = 1 } };
+
+            //Assert
+            CanPutRoadNorthWeast_DataValid canPutRoadNorthWeast = new CanPutRoadNorthWeast_DataValid();
+
+            //Act 
+            var canPut = canPutRoadNorthWeast.IsValid(topHexagonTileModel, null, null, 1);
+
+            //Assert
+            Assert.AreEqual(canPut, true);
+        }
+
+        [TestMethod]
+        public void TopHex_PlayerHasCityAtBottomLeftCorner()
+        {
+            HexagonTileModel topHexagonTileModel = new HexagonTileModel() { BottomLeftCorner = new CornerTypeModel() { HasCity = true, OwnerID = 1 } };
+
+            //Assert
+            CanPutRoadNorthWeast_DataValid canPutRoadNorthWeast = new CanPutRoadNorthWeast_DataValid();
+
+            //Act 
+            var canPut = canPutRoadNorthWeast.IsValid(topHexagonTileModel, null, null, 1);
+
+            //Assert
+            Assert.AreEqual(canPut, true);
+        }
+
+
+    }
+}

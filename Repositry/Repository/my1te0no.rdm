@@ -1,0 +1,20 @@
+﻿using Repositry.Interface;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Repositry.Repository
+{
+    class CanPutRoadNorthWeast_MiddleHexagonTile : IValidation
+    {
+
+
+
+        public bool IsValid(object TopHexagonTileModel, object MiddleHexagonTileModel, object BottomHexagonTileModel, int PlayerID)
+        {
+            return false;
+        }
+    }
+}

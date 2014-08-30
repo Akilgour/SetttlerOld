@@ -1,0 +1,53 @@
+﻿using Repositry.Interface;
+using Repositry.Model;
+using Repositry.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Repositry.Repository
+{
+    public class CanPutRoadNorthWeast_TopHexagonTile : IValidation
+    {
+        public bool IsValid(object TopHexagonTileModel, object MiddleHexagonTileModel, object BottomHexagonTileModel, int PlayerID)
+        {
+            if (TopHexagonTileModel is HexagonTileModel)
+            {
+                HexagonTileModel topHexagonTileModel = (HexagonTileModel)TopHexagonTileModel;
+
+                if (CanPutRoad_CanPut.asdf(PlayerID, topHexagonTileModel.BottomLeftCorner))
+                    return true;
+
+                if (CanPutRoad_CanPut.asdf(PlayerID, topHexagonTileModel.MiddleLeftCorner))
+                    return true;
+
+            }
+            return false;
+        }
+
+        private bool CanPut(int PlayerID, CornerTypeModel Corner)
+        {
+            if (Corner != null)
+            {
+                if (Corner.HasSettlement)
+                {
+                    if (Corner.OwnerID == PlayerID)
+                    {
+                        return true;
+                    }
+                }
+
+                if (Corner.HasCity)
+                {
+                    if (Corner.OwnerID == PlayerID)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+    }
+}

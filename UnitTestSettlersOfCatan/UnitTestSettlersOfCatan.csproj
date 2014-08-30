@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2B0E335C-9439-4569-95E0-92EE738575C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UnitTestSettlersOfCatan</RootNamespace>
+    <AssemblyName>UnitTestSettlersOfCatan</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="..\SettlerOfCatan\Repository\Interface\IDiceRepository.cs">
+      <Link>DiceFactory\Interface\IDiceRepository.cs</Link>
+    </Compile>
+    <Compile Include="..\SettlerOfCatan\Repository\Interface\IPlayerRepository.cs">
+      <Link>DiceFactory\Interface\IPlayerRepository.cs</Link>
+    </Compile>
+    <Compile Include="Factory\DiceFactory\DiceRepositoryLoadedToOne.cs" />
+    <Compile Include="Factory\DiceFactory\DiceRepositoryLoadedToSeven.cs" />
+    <Compile Include="DiceTest\Test_DiceRepositoryLoadedToOne.cs" />
+    <Compile Include="DiceTest\Test_DiceRepositoryLoadedToSeven.cs" />
+    <Compile Include="Factory\HexagonTileCanPutFactory\HexagonTileCanPutRepositoryAllFalse.cs" />
+    <Compile Include="Factory\HexagonTileCanPutFactory\HexagonTileCanPutRepositoryAllTrue.cs" />
+    <Compile Include="Factory\Validation\ValidationFalseMessageBar.cs" />
+    <Compile Include="Factory\Validation\ValidationFalseMessageFoo.cs" />
+    <Compile Include="Factory\Validation\ValidationTrueNoMessage.cs" />
+    <Compile Include="HexagonTile\CanPutRoad\Test_CanPutRoad_East_BottomHexagonTile.cs" />
+    <Compile Include="HexagonTile\CanPutRoad\Test_CanPutRoad_East_TopHexagonTile.cs" />
+    <Compile Include="HexagonTile\CanPutRoad\Test_CanPutRoad_NorthWeast_MiddleHexagonTile.cs" />
+    <Compile Include="HexagonTile\CanPutRoad\Test_CanPutRoad_NorthWeast_TopHexagonTile.cs" />
+    <Compile Include="HexagonTile\CanPutRoad\Test_CanPutRoad_SouthWeast_MiddleHexagonTile.cs" />
+    <Compile Include="HexagonTile\CanPutRoad\Test_CanPutRoad_SouthWeast_BottomHexagonTile.cs" />
+    <Compile Include="HexagonTile\Test_CanPutSettlement_AtMiddleRightCorner_AllreadyHasSettlement.cs" />
+    <Compile Include="HexagonTile\Test_CanPutSettlement_AtMiddleRightCorner_AdjacentSettlement.cs" />
+    <Compile Include="HexagonTile\Test_CanPutSettlement_AtMiddleRightCorner_NotFirstTurn.cs" />
+    <Compile Include="HexagonTile\Test_CanPutSettlement_DataValid.cs" />
+    <Compile Include="HexagonTile\Test_HexagonTileRepositry_CanPutCity.cs" />
+    <Compile Include="HexagonTile\Test_HexagonTileRepositry_CanPutSettlemt.cs" />
+    <Compile Include="HexagonTile\Test_HexagonTileRoadRepository.cs" />
+    <Compile Include="HexagonTile\Test_HexagonTileRepositry_Put.cs" />
+    <Compile Include="HexagonTile\CanPutRoad\Test_CanPutRoad_DataValid.cs" />
+    <Compile Include="PlayerTest\Test_PlayerRepository.cs" />
+    <Compile Include="Repository\RoadRepositoryTestcs.cs" />
+    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Factory\HexagonTileCanPutFactory\Interface\" />
+    <Folder Include="HexagonTile\Interface\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Repositry\Repositry.csproj">
+      <Project>{d6312152-d571-4b9a-b11b-9ec415d6fa5f}</Project>
+      <Name>Repositry</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

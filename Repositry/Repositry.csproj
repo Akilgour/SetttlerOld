@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D6312152-D571-4B9A-B11B-9EC415D6FA5F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Repositry</RootNamespace>
+    <AssemblyName>Repositry</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Factory\IIsland.cs" />
+    <Compile Include="Factory\SevenHexIslandFactory.cs" />
+    <Compile Include="Interface\IHexagonTileCanPutRepository.cs" />
+    <Compile Include="Interface\IHexagonTilePutRepository.cs" />
+    <Compile Include="Interface\IValidationRoad.cs" />
+    <Compile Include="Interface\IPlayerRepository.cs" />
+    <Compile Include="Interface\IValidationCanPutSettlement.cs" />
+    <Compile Include="Interface\IValidationToken.cs" />
+    <Compile Include="Model\CornerTypeModel.cs" />
+    <Compile Include="Model\HexagonTileModel.cs" />
+    <Compile Include="Model\Interface\IHexagonTileModel.cs" />
+    <Compile Include="Model\Interface\IPlayerModel.cs" />
+    <Compile Include="Model\Interface\IValidationResults.cs" />
+    <Compile Include="Model\PlayerModel.cs" />
+    <Compile Include="Model\ResourceModel.cs" />
+    <Compile Include="Model\ValidationResults.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CanPutRoad\CanPutRoadEast_BottomHexagonTile.cs" />
+    <Compile Include="Repository\CanPutRoad\CanPutRoadEast_TopHexagonTile.cs" />
+    <Compile Include="Repository\CanPutRoad\CanPutRoadNorthWeast_DataValid.cs" />
+    <Compile Include="Repository\CanPutRoad\CanPutRoadNorthWeast_MiddleHexagonTile.cs" />
+    <Compile Include="Repository\CanPutRoad\CanPutRoadNorthWeast_TopHexagonTile.cs" />
+    <Compile Include="Repository\CanPutRoad\CanPutRoadSouthWest_BottomHexagonTile.cs" />
+    <Compile Include="Repository\CanPutRoad\CanPutRoadSouthWest_MiddleHexagonTile.cs" />
+    <Compile Include="Repository\CanPutRoad\CanPutRoad_CanPut.cs" />
+    <Compile Include="Repository\CanPutSettlement\CanPutSettlement_AtMiddleRightCorner_AllreadyHasSettlement.cs" />
+    <Compile Include="Repository\CanPutSettlement\CanPutSettlement_AtMiddleRightCorner_AdjacentSettlement.cs" />
+    <Compile Include="Repository\CanPutSettlement\CanPutSettlement_AtMiddleRightCorner_FirstTurn.cs" />
+    <Compile Include="Repository\CanPutSettlement\CanPutSettlement_AtMiddleRightCorner_NotFirstTurn.cs" />
+    <Compile Include="Repository\HexagonTileCanPutRepository.cs" />
+    <Compile Include="Repository\HexagonTilePutRepository.cs" />
+    <Compile Include="Repository\PlayerRepository.cs" />
+    <Compile Include="Repository\RoadRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SettlerOfCatan\SettlerOfCatan.csproj">
+      <Project>{1d38c839-735e-4385-b52c-dd804aa85563}</Project>
+      <Name>SettlerOfCatan</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

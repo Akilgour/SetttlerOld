@@ -1,0 +1,14 @@
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace UnitTestSettlersOfCatan.HexagonTile
+{
+    [TestClass]
+    public class Test_CanPutRoadNorthWeast_TopHexagonTile
+    {
+        [TestMethod]
+        public void TestMethod1()
+        {
+        }
+    }
+}
